@@ -48,7 +48,7 @@ return [
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', 'demolay-db.cxprmuf7didl.us-west-2.rds.amazonaws.com'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'demolaydb'),
+            'database' => env('DB_DATABASE', 'empdb'),
             'username' => env('DB_USERNAME', 'admin'),
             'password' => env('DB_PASSWORD', 'DeMolay1'),
             'unix_socket' => env('DB_SOCKET', ''),
