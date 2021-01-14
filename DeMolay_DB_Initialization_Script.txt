@@ -1,0 +1,450 @@
+$country = new App\Models\Country;  
+$country->id = 9;
+$country->country_name = 'Canada';
+$country->save(); 
+
+$permission = new App\Models\RolePermission; 
+$permission->member_read = true; 
+$permission->member_write = true; 
+$permission->jurisdiction_read = true; 
+$permission->jurisdiction_write = true; 
+$permission->country_read = true; 
+$permission->country_write = true;  
+$permission->save(); 
+
+$jurisdiction = new App\Models\Jurisdiction; 
+$jurisdiction->id = 0; 
+$jurisdiction->description = 'Canada'; 
+$jurisdiction->country_id = 9; 
+$jurisdiction->save(); 
+
+$jurisdiction1 = new App\Models\Jurisdiction; 
+$jurisdiction1->id = 1; 
+$jurisdiction1->description = 'British Columbia'; 
+$jurisdiction1->country_id = 9; 
+$jurisdiction1->save(); 
+
+$jurisdiction2 = new App\Models\Jurisdiction; 
+$jurisdiction2->id = 2; 
+$jurisdiction2->description = 'Alberta'; 
+$jurisdiction2->country_id = 9; 
+$jurisdiction2->save();
+
+$jurisdiction3 = new App\Models\Jurisdiction; 
+$jurisdiction3->id = 3; 
+$jurisdiction3->description = 'Saskatchewan'; 
+$jurisdiction3->country_id = 9; 
+$jurisdiction3->save(); 
+
+$jurisdiction4 = new App\Models\Jurisdiction; 
+$jurisdiction4->id = 4; 
+$jurisdiction4->description = 'Manitoba'; 
+$jurisdiction4->country_id = 9; 
+$jurisdiction4->save();
+
+$jurisdiction5 = new App\Models\Jurisdiction; 
+$jurisdiction5->id = 5; 
+$jurisdiction5->description = 'Ontario'; 
+$jurisdiction5->country_id = 9; 
+$jurisdiction5->save(); 
+
+$jurisdiction6 = new App\Models\Jurisdiction; 
+$jurisdiction6->id = 6; 
+$jurisdiction6->description = 'Quebec'; 
+$jurisdiction6->country_id = 9; 
+$jurisdiction6->save(); 
+
+$jurisdiction7 = new App\Models\Jurisdiction; 
+$jurisdiction7->id = 7; 
+$jurisdiction7->description = 'Atlantic'; 
+$jurisdiction7->country_id = 9; 
+$jurisdiction7->save(); 
+
+$jurisdiction8 = new App\Models\Jurisdiction; 
+$jurisdiction8->id = 9; 
+$jurisdiction8->description = 'General, Foundations'; 
+$jurisdiction8->country_id = 9; 
+$jurisdiction8->save(); 
+
+
+$arole = new App\Models\AccessRole;
+$arole->id = 1;
+$arole->name = 'admin';
+$arole->save();
+
+$arole1 = new App\Models\AccessRole;
+$arole1->id = 2;
+$arole1->name = 'secretary';
+$arole1->save();
+
+$arole2 = new App\Models\AccessRole;
+$arole2->id = 3;
+$arole2->name = 'president';
+$arole2->save(); 
+
+$arole3 = new App\Models\AccessRole;
+$arole3->id = 4;
+$arole3->name = 'executive';
+$arole3->save();  
+
+$arole4 = new App\Models\AccessRole;
+$arole4->id = 5;
+$arole4->name = 'Chapter';
+$arole4->save(); 
+
+$role = new App\Models\Role; 
+$role->id = 1; 
+$role->role_name = 'Admin'; 
+$role->role_access = 1; 
+$role->save(); 
+
+$role8 = new App\Models\Role; 
+$role8->id = 2; 
+$role8->role_name = 'IT Admin'; 
+$role8->role_access = 1; 
+$role8->role_permissions_id = 1
+$role8->save();
+
+$role1 = new App\Models\Role; 
+$role1->id = 3; 
+$role1->role_name = 'Secretary'; 
+$role1->role_access = 2; 
+$role1->save(); 
+
+$role1 = new App\Models\Role; 
+$role1->id = 4; 
+$role1->role_name = 'Director At Large'; 
+$role1->role_access = 2; 
+$role1->save(); 
+
+$role2 = new App\Models\Role; 
+$role2->id = 5; 
+$role2->role_name = 'Board Member' 
+$role2->role_access = 3; 
+$role2->save(); 
+
+$role3 = new App\Models\Role; 
+$role3->id = 6; 
+$role3->role_name = 'President'; 
+$role3->role_access = 3; 
+$role3->save(); 
+
+$role4 = new App\Models\Role; 
+$role4->id = 7; 
+$role4->role_name = 'Executive Officer'; 
+$role4->role_access = 4; 
+$role4->save(); 
+
+$role5 = new App\Models\Role;  
+$role5->id = 8; 
+$role5->role_name = 'Chapter Chairman';
+$role5->role_access = 5;
+$role5->save();
+
+$role6 = new App\Models\Role;  
+$role6->id = 9; 
+$role6->role_name = 'Chapter Advisor';
+$role6->role_access = 5;
+$role6->save();
+
+$p6 = new App\Models\User;
+$p6->id = 1;
+$p6->first_name = 'Admin';
+$p6->last_name = 'DeMolay';
+$p6->email = 'admin@test.com';
+$p6->password = Hash::make('administration');
+$p6->jurisdiction_id = 0; 
+$p6->save(); 
+
+$userRole = new App\Models\UserRole;
+$userRole->role_id = 1;
+$userRole->user_id = 1;
+$userRole->save(); 
+
+$createUser = new App\Models\CreateUser; 
+$createUser->create_access_role_id = 1;
+$createUser->user_access_role_id =  1;
+$createUser ->save();
+
+$createUser = new App\Models\CreateUser; 
+$createUser->create_access_role_id = 2;
+$createUser->user_access_role_id =  1;
+$createUser ->save();
+
+$createUser = new App\Models\CreateUser; 
+$createUser->create_access_role_id = 3;
+$createUser->user_access_role_id = 1;
+$createUser ->save();
+
+$createUser = new App\Models\CreateUser; 
+$createUser->create_access_role_id = 4;
+$createUser->user_access_role_id = 1;
+$createUser ->save(); 
+
+$createUser = new App\Models\CreateUser; 
+$createUser->create_access_role_id = 5;
+$createUser->user_access_role_id = 1;
+$createUser ->save(); 
+
+$createUser = new App\Models\CreateUser; 
+$createUser->create_access_role_id = 6;
+$createUser->user_access_role_id = 1;
+$createUser ->save();
+
+$createUser = new App\Models\CreateUser; 
+$createUser->create_access_role_id = 7;
+$createUser->user_access_role_id = 1;
+$createUser ->save(); 
+
+$createUser = new App\Models\CreateUser; 
+$createUser->create_access_role_id = 8;
+$createUser->user_access_role_id = 1;
+$createUser ->save(); 
+
+$createUser = new App\Models\CreateUser; 
+$createUser->create_access_role_id = 9;
+$createUser->user_access_role_id = 1;
+$createUser ->save(); 
+
+$createUser = new App\Models\CreateUser; 
+$createUser->create_access_role_id = 7;
+$createUser->user_access_role_id = 3;
+$createUser ->save();
+
+$createUser = new App\Models\CreateUser; 
+$createUser->create_access_role_id = 8;
+$createUser->user_access_role_id = 3; 
+$createUser ->save(); 
+
+$createUser = new App\Models\CreateUser; 
+$createUser->create_access_role_id = 7;
+$createUser->user_access_role_id = 4;
+$createUser ->save();
+
+$createUser = new App\Models\CreateUser; 
+$createUser->create_access_role_id = 8;
+$createUser->user_access_role_id = 4;
+$createUser ->save();
+
+
+$createUser = new App\Models\CreateUser; 
+$createUser->create_access_role_id = 7;
+$createUser->user_access_role_id = 6;
+$createUser ->save();
+
+$createUser = new App\Models\CreateUser; 
+$createUser->create_access_role_id = 8;
+$createUser->user_access_role_id = 6;
+$createUser ->save(); 
+
+$createUser = new App\Models\CreateUser; 
+$createUser->create_access_role_id = 8;
+$createUser->user_access_role_id = 7;
+$createUser ->save();
+
+$createUser = new App\Models\CreateUser; 
+$createUser->create_access_role_id = 9;
+$createUser->user_access_role_id = 7;
+$createUser ->save(); 
+
+$createUser = new App\Models\CreateUser; 
+$createUser->create_access_role_id = 9;
+$createUser->user_access_role_id = 8;
+$createUser ->save(); 
+
+$activity_category = new App\Models\TypeOfActivity; 
+$activity_category->id = 1; 
+$activity_category->activity = 'Athletics'; 
+$activity_category->save();
+
+$activity_category = new App\Models\TypeOfActivity; 
+$activity_category->id = 2; 
+$activity_category->activity = 'Attendance'; 
+$activity_category->save(); 
+
+$activity_category = new App\Models\TypeOfActivity; 
+$activity_category->id = 3; 
+$activity_category->activity = 'Civic Service'; 
+$activity_category->save(); 
+
+$activity_category = new App\Models\TypeOfActivity; 
+$activity_category->id = 4; 
+$activity_category->activity = 'Conclave'; 
+$activity_category->save(); 
+
+$activity_category = new App\Models\TypeOfActivity; 
+$activity_category->id = 5; 
+$activity_category->activity = 'Correspondence Course'; 
+$activity_category->save(); 
+
+$activity_category = new App\Models\TypeOfActivity; 
+$activity_category->id = 6; 
+$activity_category->activity = 'Fine Arts'; 
+$activity_category->save(); 
+
+$activity_category = new App\Models\TypeOfActivity; 
+$activity_category->id = 7; 
+$activity_category->activity = 'Fund Raising'; 
+$activity_category->save(); 
+
+$activity_category = new App\Models\TypeOfActivity; 
+$activity_category->id = 8; 
+$activity_category->activity = 'Installing'; 
+$activity_category->save(); 
+
+$activity_category = new App\Models\TypeOfActivity; 
+$activity_category->id = 9; 
+$activity_category->activity = 'Journalism'; 
+$activity_category->save(); 
+
+$activity_category = new App\Models\TypeOfActivity; 
+$activity_category->id = 10; 
+$activity_category->activity = 'Masonic Attendance'; 
+$activity_category->save(); 
+
+$activity_category = new App\Models\TypeOfActivity; 
+$activity_category->id = 11; 
+$activity_category->activity = 'Masonic Service'; 
+$activity_category->save(); 
+
+$activity_category = new App\Models\TypeOfActivity; 
+$activity_category->id = 12; 
+$activity_category->activity = 'Merit'; 
+$activity_category->save(); 
+
+$activity_category = new App\Models\TypeOfActivity; 
+$activity_category->id = 13; 
+$activity_category->activity = 'Membership'; 
+$activity_category->save(); 
+
+$activity_category = new App\Models\TypeOfActivity; 
+$activity_category->id = 14; 
+$activity_category->activity = 'Priory'; 
+$activity_category->save(); 
+
+$activity_category = new App\Models\TypeOfActivity; 
+$activity_category->id = 15; 
+$activity_category->activity = 'Religion'; 
+$activity_category->save(); 
+
+$activity_category = new App\Models\TypeOfActivity; 
+$activity_category->id = 16; 
+$activity_category->activity = 'Ritual'; 
+$activity_category->save(); 
+
+$activity_category = new App\Models\TypeOfActivity; 
+$activity_category->id = 17; 
+$activity_category->activity = 'Safe Driver'; 
+$activity_category->save(); 
+
+$activity_category = new App\Models\TypeOfActivity; 
+$activity_category->id = 18; 
+$activity_category->activity = 'Scholastics'; 
+$activity_category->save();
+
+$activity_category = new App\Models\TypeOfActivity; 
+$activity_category->id = 19; 
+$activity_category->activity = 'Visitation'; 
+$activity_category->save();
+
+
+$merit = new App\Models\MeritBar; 
+$merit->description = 'White'; 
+$merit->save(); 
+
+$merit1 = new App\Models\MeritBar; 
+$merit1->description = 'Red';
+$merit1->save();
+
+$merit2 = new App\Models\MeritBar; 
+$merit2->description = 'Blue'; 
+$merit2->save();
+
+$merit3 = new App\Models\MeritBar; 
+$merit3->description = 'Purple';
+$merit3->save();
+
+$merit4 = new App\Models\MeritBar; 
+$merit4->description = 'Gold';
+$merit4->save();
+
+$award = new App\Models\NominationAward; 
+$award->description = "Legon of Honour (Active)"; 
+$award->save(); 
+
+$award = new App\Models\NominationAward; 
+$award->description = "Honourary Legion of Honour"; 
+$award->save(); 
+
+$award = new App\Models\NominationAward; 
+$award->description = "Cross of Honour"; 
+$award->save(); 
+
+$award = new App\Models\NominationAward; 
+$award->description = "Chevalier"; 
+$award->save(); 
+
+$position = new App\Models\Position;
+$position->position_name = 'Prospect';
+$position->save();
+
+$position = new App\Models\Position;
+$position->position_name = 'Member';
+$position->save();
+
+$position = new App\Models\Position;
+$position->position_name = 'Steward';
+$position->save();
+
+$position = new App\Models\Position;
+$position->position_name = 'Deacon';
+$position->save();
+
+$position = new App\Models\Position;
+$position->position_name = 'Preceptor';
+$position->save();
+
+$position = new App\Models\Position;
+$position->position_name = 'Chaplain';
+$position->save();
+
+$position = new App\Models\Position;
+$position->position_name = 'Scribe';
+$position->save();
+
+$position = new App\Models\Position;
+$position->position_name = 'Treasurer';
+$position->save();
+
+$position = new App\Models\Position;
+$position->position_name = 'Junior Councillor';
+$position->save();
+
+$position = new App\Models\Position;
+$position->position_name = 'Senior Councillor';
+$position->save();
+
+$position = new App\Models\Position;
+$position->position_name = 'Master Councillor';
+$position->save();
+
+$position = new App\Models\Position;
+$position->position_name = 'Advisor';
+$position->save(); 
+
+$position = new App\Models\Position;
+$position->position_name = 'Chapter Chairman';
+$position->save();
+
+$position = new App\Models\Position;
+$position->position_name = 'Board Member';
+$position->save();
+
+$position = new App\Models\Position;
+$position->position_name = 'Executive Secretary';
+$position->save();
+
+$position = new App\Models\Position;
+$position->position_name = 'President';
+$position->save();
+
